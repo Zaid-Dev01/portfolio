@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohammed Zaid - BCA Student and Aspiring Developer">
+  <title>Mohammed Zaid | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #070b16;
+      --card: #0e1527;
+      --text: #f4f5ff;
+      --muted: #a8b2ce;
+      --purple: #a855f7;
+      --blue: #368bff;
+      --border: rgba(150, 165, 220, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 22, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--purple);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      background: var(--card);
+      color: white;
+      cursor: pointer;
+    }
+
+    /* HOME */
+
+    #home {
+      min-height: 610px;
+      display: flex;
+      align-items: center;
+      padding: 70px 0;
+      background:
+        radial-gradient(ellipse at 80% 30%,
+        rgba(88, 65, 210, 0.17), transparent 40%);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .greeting {
+      color: #c4b5fd;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 65px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #c084fc, #60a5fa);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .headline {
+      font-size: clamp(18px, 2.5vw, 24px);
+      color: #b7a6ff;
+      margin-bottom: 18px;
+    }
+
+    .description {
+      color: var(--muted);
+      max-width: 540px;
+      font-size: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 27px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .primary {
+      background: linear-gradient(100deg, var(--purple), var(--blue));
+      color: white;
+    }
+
+    .outline {
+      border: 1px solid var(--purple);
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: #c4b5fd;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .socials a:hover {
+      background: var(--purple);
+      color: white;
+    }
+
+    .hero-art {
+      display: grid;
+      place-items: center;
+      min-height: 300px;
+    }
+
+    .avatar {
+      width: min(300px, 75vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 115px;
+      background:
+        radial-gradient(circle, #192b59, #10152c 60%, #070b16);
+      border: 3px solid transparent;
+      background-clip: padding-box;
+      outline: 2px solid var(--purple);
+      box-shadow: 0 0 65px rgba(115, 70, 255, 0.25);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section:not(#home) {
+      padding: 75px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #a78bfa;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 36px);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-card {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #131d37, #0b1020);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 0 35px rgba(80, 70, 200, 0.1);
+    }
+
+    .code {
+      width: 100%;
+      padding: 20px;
+      border-radius: 12px;
+      background: #070b16;
+      color: #c4b5fd;
+      font-family: monospace;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .code .green {
+      color: #86efac;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 16px 0 25px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .fact {
+      border-left: 2px solid var(--purple);
+      padding-left: 12px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .fact span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 15px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple);
+    }
+
+    .skill-icon {
+      min-width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      background: #19213b;
+      border-radius: 10px;
+      color: #a78bfa;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .skill span:last-child {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue);
+    }
+
+    .project-cover {
+      height: 155px;
+      display: grid;
+      place-items: center;
+      font-size: 55px;
+      background:
+        radial-gradient(circle at 70% 30%,
+        rgba(93, 83, 255, 0.35), transparent 45%),
+        linear-gradient(135deg, #121d3a, #080d1a);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 17px;
+    }
+
+    .tag {
+      background: rgba(120, 100, 255, 0.13);
+      color: #c4b5fd;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 10px;
+    }
+
+    .project-link {
+      color: #93baff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-item {
+      padding: 20px;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item a:hover {
+      color: white;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer a {
+      color: #c4b5fd;
+    }
+
+    /* MOBILE RESPONSIVENESS */
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 20px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 25px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 5%;
+        width: 90%;
+        padding: 18px;
+        background: #0d1425;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #home {
+        padding: 45px 0;
+      }
+
+      .hero-art {
+        order: -1;
+        min-height: 240px;
+      }
+
+      .avatar {
+        width: 220px;
+        font-size: 85px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      section:not(#home) {
+        padding: 55px 0;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">MZ<span>.</span> Mohammed Zaid</a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="container hero">
+        <div>
+          <p class="greeting">Hello, I'm 👋</p>
+
+          <h1>Mohammed <span class="gradient">Zaid</span></h1>
+
+          <h2 class="headline">
+            BCA Student &amp; Aspiring Developer
+          </h2>
+
+          <p class="description">
+            I'm passionate about technology, problem-solving, and
+            building useful digital experiences. I'm currently pursuing
+            my BCA and looking forward to gaining real-world experience
+            through internships and personal projects.
+          </p>
+
+          <div class="buttons">
+            <a href="#projects" class="btn primary">
+              View My Projects →
+            </a>
+
+            <!-- Add your CV PDF and name it zaid-cv.pdf -->
+            <a href="zaid-cv.pdf" class="btn outline" download>
+              Download CV ↓
+            </a>
+          </div>
+
+          <!-- Replace these links with your actual profiles -->
+          <div class="socials">
+            <a href="https://github.com/your-username"
+               target="_blank" rel="noopener noreferrer">GH</a>
+
+            <a href="https://linkedin.com/in/your-username"
+               target="_blank" rel="noopener noreferrer">in</a>
+
+            <a href="https://x.com/your-username"
+               target="_blank" rel="noopener noreferrer">𝕏</a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="avatar">👨🏻‍💻</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container about-grid">
+
+        <div class="about-card">
+          <div class="code">
+            <div>const developer = {</div>
+            <div>&nbsp;&nbsp;name:
+              <span class="green">"Mohammed Zaid"</span>,
+            </div>
+            <div>&nbsp;&nbsp;learning: true,</div>
+            <div>&nbsp;&nbsp;goal:
+              <span class="green">"Build useful things"</span>
+            </div>
+            <div>};</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Who I Am</h2>
+
+          <p class="about-text">
+            I'm Mohammed Zaid, a BCA student interested in programming,
+            web development, and technology. I enjoy learning new
+            concepts, building projects, and exploring how technology
+            can solve everyday problems. I'm looking for opportunities
+            to improve my skills, collaborate with others, and gain
+            practical experience through internships.
+          </p>
+
+          <div class="facts">
+            <div class="fact">
+              <strong>Education</strong>
+              <span>BCA Student</span>
+            </div>
+
+            <div class="fact">
+              <strong>Interests</strong>
+              <span>Development &amp; UI/UX</span>
+            </div>
+
+            <div class="fact">
+              <strong>Goal</strong>
+              <span>Internships &amp; projects</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+
+        <p class="section-label">My Skills</p>
+        <h2 class="section-title">Technologies I Work With</h2>
+
+        <p class="section-description">
+          I'm continuously learning and improving my skills to become
+          a better developer.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill">
+            <span class="skill-icon">C</span>
+            <span>C Programming</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">JV</span>
+            <span>Java</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">PY</span>
+            <span>Python</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">H5</span>
+            <span>HTML &amp; CSS</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">JS</span>
+            <span>JavaScript</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">UI</span>
+            <span>UI/UX Design</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">DB</span>
+            <span>SQL / DBMS</span>
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">Git</span>
+            <span>Git &amp; GitHub</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+
+        <p class="section-label">My Projects</p>
+        <h2 class="section-title">Featured Projects</h2>
+
+        <p class="section-description">
+          Here are some project ideas from my learning journey.
+          Replace the sample links with your actual project repositories.
+        </p>
+
+        <div class="projects-grid">
+
+          <article class="project">
+            <div class="project-cover">💻</div>
+
+            <div class="project-content">
+              <h3>Portfolio Website</h3>
+
+              <p>
+                A personal website to showcase my skills, projects,
+                and achievements in one place.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+
+              <a class="project-link"
+                 href="https://github.com/your-username/portfolio"
+                 target="_blank" rel="noopener noreferrer">
+                View Project →
+              </a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-cover">🚌</div>
+
+            <div class="project-content">
+              <h3>Bus &amp; Metro Tracking App</h3>
+
+              <p>
+                A transport app concept designed to help users access
+                bus and metro information more easily.
+              </p>
+
+              <div class="tags">
+                <span class="tag">UI/UX</span>
+                <span class="tag">Frontend</span>
+                <span class="tag">JavaScript</span>
+              </div>
+
+              <a class="project-link"
+                 href="https://github.com/your-username/transport-tracker"
+                 target="_blank" rel="noopener noreferrer">
+                View Project →
+              </a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-cover">🗄️</div>
+
+            <div class="project-content">
+              <h3>Student Management System</h3>
+
+              <p>
+                A database project concept for organizing student
+                records and practising CRUD operations.
+              </p>
+
+              <div class="tags">
+                <span class="tag">SQL</span>
+                <span class="tag">DBMS</span>
+                <span class="tag">C</span>
+              </div>
+
+              <a class="project-link"
+                 href="https://github.com/your-username/student-management"
+                 target="_blank" rel="noopener noreferrer">
+                View Project →
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title">Let's Connect</h2>
+
+        <p class="section-description">
+          I'm open to internships, collaborations, and learning
+          opportunities. Feel free to connect with me.
+        </p>
+
+        <div class="contact-grid">
+
+          <div class="contact-item">
+            <strong>✉ Email</strong>
+            <a href="mailto:your.email@example.com">
+              your.email@example.com
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <strong>📍 Location</strong>
+            <p>India</p>
+          </div>
+
+          <div class="contact-item">
+            <strong>GitHub</strong>
+            <a href="https://github.com/your-username"
+               target="_blank" rel="noopener noreferrer">
+              github.com/your-username
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <strong>LinkedIn</strong>
+            <a href="https://linkedin.com/in/your-username"
+               target="_blank" rel="noopener noreferrer">
+              linkedin.com/in/your-username
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <p>
+        © <span id="year"></span> Mohammed Zaid.
+        Built with curiosity and code.
+      </p>
+
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      const open = navLinks.classList.toggle("open");
+
+      menuBtn.setAttribute("aria-expanded", open);
+      menuBtn.textContent = open ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
